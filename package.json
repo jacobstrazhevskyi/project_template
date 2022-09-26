@@ -9,8 +9,10 @@
     "lint:html": "linthtml src/**/*.html",
     "lint:css": "stylelint **/*.scss",
     "lint:js": "eslint ./src",
-    "lint": "concurrently \"npm run lint:html\" \"npm run lint:css\" \"npm run lint:js\""
-    
+    "lint": "concurrently \"npm run lint:html\" \"npm run lint:css\" \"npm run lint:js\"",
+    "build": "rm -rf dist && parcel build ./src/index.html --public-url ./",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "gh-pages": "^4.0.0",
     "parcel": "^1.12.3",
     "stylelint": "^14.12.1",
     "stylelint-config-standard-scss": "^5.0.0"
